@@ -13,7 +13,7 @@
   "scripts": {
     "-----starters-----": "",
     "start:client": "yarn workspace client start",
-    "start:server": "yarn workspace server start:watch",
+    "start:server": "yarn workspace server start:dev",
     "-------build------": "",
     "build:client": "yarn workspace client build",
     "build:server": "yarn workspace server build",
