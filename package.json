@@ -1,0 +1,42 @@
+{
+  "name": "stempel-main",
+  "version": "1.0.0",
+  "description": "main repo for stempel-bonus.de",
+  "repository": "https://github.com/PronDmytro/internet-provider.git",
+  "author": "PronDmytro <dmytropron5838@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "-----starters-----": "",
+    "start:client": "yarn workspace client start",
+    "start:server": "yarn workspace server start:watch",
+    "-------build------": "",
+    "build:client": "yarn workspace client build",
+    "build:server": "yarn workspace server build",
+    "-------tests------": "",
+    "test": "run-p -n -l test:server test:client",
+    "test:client": "yarn workspace client test",
+    "test:server": "yarn workspace server test",
+    "e2e": "run-p -r -n -l start:client start:server cy:open",
+    "e2e:ci": "run-p  -r -n -l start:client start:server cy:run",
+    "cy:open": "yarn workspace client cy:open",
+    "cy:run": "yarn workspace client cy:run",
+    "-------tools------": "",
+    "lint": "yarn workspaces run lint",
+    "lint-fix": "yarn workspaces run lint-fix"
+  },
+  "engines": {
+    "yarn": "1.x",
+    "node": "14.x"
+  },
+  "dependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.3"
+  }
+}
