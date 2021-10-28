@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       files: ['.component.html'],
-      extends: ['plugin:@angular-eslint/template/recommended'],
+      // extends: ['plugin:@/template/recommended'],
       plugins: ['html'],
       rules: {
         'max-len': ['error', {code: 120}],
