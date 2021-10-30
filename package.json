@@ -27,7 +27,9 @@
     "cy:run": "yarn workspace client cy:run",
     "-------tools------": "",
     "lint": "yarn workspaces run lint",
-    "lint-fix": "yarn workspaces run lint-fix"
+    "lint-fix": "yarn workspaces run lint-fix",
+    "docker:database:start": "docker-compose -f data-base/docker-compose.database.yml up",
+    "docker:database:delete": "docker-compose -f test-db/docker-compose.database.yml rm -f -v"
   },
   "engines": {
     "yarn": "1.x",
