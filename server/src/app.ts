@@ -4,7 +4,7 @@ import conf from './conf';
 import {WinstonModule} from 'nest-winston';
 import {winstonConf} from './winston-logger-conf';
 import {AppModule} from './app.module';
-import {AllExceptionsFilter} from './exceptions/all-exceptions.filter';
+import {AllExceptionsFilter} from './core/exceptions/all-exceptions.filter';
 
 export async function createMainApp() {
   const appOptions: NestApplicationOptions = {
