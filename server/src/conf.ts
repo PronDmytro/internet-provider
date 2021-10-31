@@ -20,12 +20,12 @@ const conf = {
     dev: isDevEnv,
   },
   port: port,
-  typeormConfig: getTypeormConf(isProdEnv),
+  typeormConfig: getTypeormConf(),
   jwtSecret: env.JWT_SECRET ?? 's0meC0mpl1cat3DS3cRET%!!',
   hostUrl: `http://localhost:${port}`,
   apiUrlPath: '/api/v1',
 
-  forceSsl: parseBool(env.FORCE_SSL, isProdEnv),
+  forceSsl: false,
 };
 
 if (!isTestEnv && findUndefinedProperty(conf)) {
@@ -59,39 +59,29 @@ function findUndefinedProperty(obj: object): string | undefined {
   }
 }
 
-function parseBool(value: any, defaultValue = false) {
-  if (isUndefined(value)) {
-    return defaultValue;
-  }
-
-  if (value === 'true' || value === '1' || value === 1 || value === true) {
-    return true;
-  }
-
-  if (value === 'false' || value === '0' || value === 0 || value === false) {
-    return false;
-  }
-
-  throw new Error('conf#parseBool: can not parse boolean value' + value);
-}
-
-function getTypeormConf(isProd: boolean): ConnectionOptions {
-  const dbType = String(env.TYPEORM_DB_TYPE);
-  let config: SqlServerConnectionOptions;
+function getTypeormConf(): ConnectionOptions {
+  const dbType = String(env.DB_TYPE);
+  let config: ConnectionOptions;
   if (dbType === 'mssql') {
     config = {
-      type: dbType,
+      type: String(env.DB_TYPE),
+      host: String(env.DB_HOST),
+      port: Number(env.DB_PORT),
+      username: String(env.DB_USERNAME),
+      password: String(env.DB_PASSWORD),
+      database: String(env.DB_NAME),
       ssl: false,
-      synchronize: !isProd,
-      url: String(env.DATABASE_URL),
-      host: String(env.TYPEORM_HOST),
-      port: Number(env.TYPEORM_PORT),
-      username: String(env.TYPEORM_USERNAME),
-      password: String(env.TYPEORM_PASSWORD),
-      database: String(env.TYPEORM_DATABASE),
+      synchronize: true,
+      options: {
+        encrypt: false,
+        enableArithAbort: true,
+      },
+      extra: {
+        validateConnection: false,
+        trustServerCertificate: true,
+      },
     } as SqlServerConnectionOptions;
   }
-
   return {
     ...config,
     entities: [join(__dirname, '**', '**.entity{.ts,.js}')],

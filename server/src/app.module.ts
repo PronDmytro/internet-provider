@@ -4,9 +4,13 @@ import {AppService} from './app.service';
 import {pick} from 'lodash';
 import {Connection} from 'typeorm';
 import {LoggerMiddleware} from './core/logger/logger-middleware';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import conf from './conf';
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRoot(conf.typeormConfig),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
