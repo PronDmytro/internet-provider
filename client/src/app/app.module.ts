@@ -16,7 +16,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
-import {MatRippleModule} from '@angular/material/core';
+import {MatRippleModule, MatNativeDateModule} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -34,9 +34,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
 import {RouterModule} from '@angular/router';
 import {ConfigurationService} from './core/services/api/configuration.service';
+import {TableComponent} from './components/table/table.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {FormFieldComponent} from './components/form-field/form-field.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ClientsComponent } from './components/clients/clients.component';
 
 const MaterialModules = [
   CdkTreeModule,
@@ -72,11 +78,33 @@ const MaterialModules = [
   MatDatepickerModule,
   MatTooltipModule,
   MatSliderModule,
+  MatTabsModule,
+  MatInputModule,
+  MatSelectModule,
+  MatRippleModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatMenuModule,
+  MatExpansionModule,
+  MatProgressBarModule,
+  MatTooltipModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSidenavModule,
+  BrowserAnimationsModule,
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    TableComponent,
+    DashboardComponent,
+    FormFieldComponent,
+    ClientsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,68 @@
+<div class="mt-5">
+  <mat-drawer-container class="modhyobitto-table-drawer-container">
+<!--    <mat-drawer mode="over" position="end" #table_update_drawer-->
+<!--                [opened]="isTableBeingUpdated"-->
+<!--                disableClose="true">-->
+<!--      <section class="table-update">-->
+<!--        <form class="table-update__form"-->
+<!--              (ngSubmit)="updateTableData()">-->
+<!--          <header class="table-update__header">-->
+<!--            <h2 class="h3">{{isNewRowBeingAdded ? 'Add New' : 'Edit'}} Row</h2>-->
+<!--          </header>-->
+<!--          <div class="table-update__fields">-->
+<!--            <div class="row">-->
+<!--              <div class="col-6">-->
+<!--                <app-form-field-->
+<!--                  [parentFG]="tableUpdateForm"-->
+<!--                  controlName="a"-->
+<!--                  label="Column A">-->
+<!--                </app-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-6">-->
+<!--                <app-form-field-->
+<!--                  [parentFG]="tableUpdateForm"-->
+<!--                  controlName="c"-->
+<!--                  label="Column C">-->
+<!--                </app-form-field>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--              <div class="col-12">-->
+<!--                <app-form-field-->
+<!--                  [parentFG]="tableUpdateForm"-->
+<!--                  controlName="b"-->
+<!--                  label="Column B">-->
+<!--                </app-form-field>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <footer class="table-update__footer">-->
+<!--            <div class="row flex-column-reverse flex-sm-row">-->
+<!--              <div class="col-12 col-sm-6">-->
+<!--                <button matRipple-->
+<!--                        class="secondary-button mt-3 mt-sm-0"-->
+<!--                        type="button"-->
+<!--                        (click)="isTableBeingUpdated = false">Dismiss-->
+<!--                </button>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-sm-6">-->
+<!--                <button matRipple-->
+<!--                        class="primary-button"-->
+<!--                        type="submit"-->
+<!--                        [disabled]="!tableUpdateForm.valid">Save-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </footer>-->
+<!--        </form>-->
+<!--      </section>-->
+<!--    </mat-drawer>-->
+    <mat-drawer-content>
+      <app-table
+        [tableConfig]="tableConfig"
+        (onRowAdd)="addNewRow()"
+        (onRowEdit)="editRow($event)">
+      </app-table>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
