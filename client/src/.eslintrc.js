@@ -6,7 +6,7 @@ module.exports = {
         project: ['tsconfig.?.json', 'e2e/tsconfig.json'],
         createDefaultProgram: true,
       },
-      extends: ['plugin:@angular-eslint/recommended', '../.eslintrc.js'],
+      extends: ['plugin:@angular-eslint/recommended'],
       rules: {},
     },
     {
