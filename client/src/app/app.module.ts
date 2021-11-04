@@ -7,7 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {ConfigurationService} from './core/services/api/configuration.service';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    HttpClientModule,
   ],
   providers: [
     RouterModule,
