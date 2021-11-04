@@ -6,10 +6,13 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {ConfigurationService} from './core/services/api/configuration.service';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
