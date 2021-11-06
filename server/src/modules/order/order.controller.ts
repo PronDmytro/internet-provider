@@ -3,7 +3,7 @@ import {OrderService} from './order.service';
 import {CreateOrderReqDto, UpdateOrderReqDto} from './dto';
 import {OrderEntity} from '../../entities/order.entity';
 
-@Controller('position')
+@Controller('order')
 export class OrderController {
 
   public constructor(
