@@ -3,7 +3,7 @@ import {CreateWorkStatusReqDto, UpdateWorkStatusReqDto} from './dto';
 import {WorkStatusService} from './work-status.service';
 import {WorkStatusEntity} from '../../entities/work-status.entity';
 
-@Controller('client')
+@Controller('work-status')
 export class WorkStatusController {
 
   public constructor(
