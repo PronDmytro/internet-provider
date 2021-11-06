@@ -1,5 +1,5 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
-import {IsString} from 'class-validator';
+import {IsEmail, IsMobilePhone, IsString} from 'class-validator';
 import {PositionEntity} from './position.entity';
 
 @Entity('Employee')
@@ -17,14 +17,14 @@ export class EmployeeEntity {
   public passportId: string;
 
   @IsString()
-  @Column({nullable: false, type: 'smalldatetime'})
+  @Column({nullable: false, type: 'date'})
   public dateBirthday: Date;
 
-  @IsString()
+  @IsMobilePhone()
   @Column({unique: true, nullable: false, length: 12})
   public telephone: string;
 
-  @IsString()
+  @IsEmail()
   @Column({unique: true, nullable: false, length: 50})
   public email: string;
 

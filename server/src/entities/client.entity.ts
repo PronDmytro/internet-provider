@@ -1,5 +1,5 @@
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
-import {IsString} from 'class-validator';
+import {IsEmail, IsMobilePhone, IsString} from 'class-validator';
 
 @Entity('Client')
 export class ClientEntity {
@@ -15,11 +15,11 @@ export class ClientEntity {
   @Column({nullable: false})
   public dateBirthday: Date;
 
-  @IsString()
+  @IsMobilePhone()
   @Column({unique: true, nullable: false, length: 12})
   public telephone: string;
 
-  @IsString()
+  @IsEmail()
   @Column({unique: true, nullable: false, length: 50})
   public email: string;
 

@@ -13,7 +13,7 @@ export class PaymentEntity {
   public sum: number;
 
   @IsString()
-  @Column({nullable: false, type: 'smalldatetime'})
+  @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   public date: Date;
 
   @ManyToOne((type) => OrderEntity)
