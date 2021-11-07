@@ -40,7 +40,7 @@ export class ApiRequestsService {
   }
 
   public deleteClientData(client: Client) {
-    return this.apiService.delete(this.clientEndpoint, client);
+    return this.apiService.delete(this.clientEndpoint+ `/${client.id}`, client);
   }
 
   public getOrdersData(): Observable<Order[]> {
@@ -60,7 +60,7 @@ export class ApiRequestsService {
   }
 
   public deleteOrderData(order: Order) {
-    return this.apiService.delete(this.orderEndpoint, order);
+    return this.apiService.delete(this.orderEndpoint+ `/${order.id}`, order);
   }
 
   public getPositionsData(): Observable<Position[]> {
@@ -80,7 +80,7 @@ export class ApiRequestsService {
   }
 
   public deletePositionData(data: Position) {
-    return this.apiService.delete(this.positionEndpoint, data);
+    return this.apiService.delete(this.positionEndpoint+ `/${data.id}`, data);
   }
 
   public getEmployeesData(): Observable<Employee[]> {
@@ -100,7 +100,7 @@ export class ApiRequestsService {
   }
 
   public deleteEmployeeData(data: Employee) {
-    return this.apiService.delete(this.employeeEndpoint, data);
+    return this.apiService.delete(this.employeeEndpoint+ `/${data.id}`, data);
   }
 
   public getWorkStatusData(): Observable<WorkStatus[]> {
@@ -120,7 +120,7 @@ export class ApiRequestsService {
   }
 
   public deleteWorkStatusData(data: WorkStatus) {
-    return this.apiService.delete(this.workStatusEndpoint, data);
+    return this.apiService.delete(this.workStatusEndpoint+ `/${data.id}`, data);
   }
 
   public getPaymentsData(): Observable<Payment[]> {
@@ -140,7 +140,7 @@ export class ApiRequestsService {
   }
 
   public deletePaymentData(data: Payment) {
-    return this.apiService.delete(this.paymentEndpoint, data);
+    return this.apiService.delete(this.paymentEndpoint+ `/${data.id}`, data);
   }
 
 }
