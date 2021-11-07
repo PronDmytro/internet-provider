@@ -1,6 +1,6 @@
 export interface Client {
-  id: string;
-  fullName: string;
+  id?: string;
+  PIB: string;
   dateBirthday: string;
   telephone: string;
   email: string;

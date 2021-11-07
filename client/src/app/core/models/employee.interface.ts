@@ -1,7 +1,7 @@
 import {Position} from './position.interface';
 
 export interface Employee {
-  id: string;
+  id?: string;
   fullName: string;
   passportId: string;
   dateBirthday: string;
