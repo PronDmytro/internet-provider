@@ -1,0 +1,67 @@
+<mat-form-field class="filter">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="enter params">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="client" >
+    <th mat-header-cell *matHeaderCellDef>Client</th>
+    <td mat-cell *matCellDef="let element"> {{element.client.PIB}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="contributor">
+    <th mat-header-cell *matHeaderCellDef>Contributor</th>
+    <td mat-cell *matCellDef="let element"> {{element.contributor.PIB}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+    <td mat-cell *matCellDef="let element"> {{normalizeData(element.orderDate)}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="service">
+    <th mat-header-cell *matHeaderCellDef>Service</th>
+    <td mat-cell *matCellDef="let element"> {{element.service.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="workStatus">
+    <th mat-header-cell *matHeaderCellDef>Work Status</th>
+    <td mat-cell *matCellDef="let element"> {{element.workStatus.statusName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="paymentStatus">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="status">Payment Status</th>
+    <td mat-cell *matCellDef="let element"> {{element.paymentStatus}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="btn" class="btn">
+    <th mat-header-cell *matHeaderCellDef class="btn">
+      <button mat-button (click)="createData()">
+        <mat-icon [ngStyle]="{'color': 'black'}">add_circle_outline</mat-icon>
+      </button>
+    </th>
+    <td mat-cell *matCellDef="let element" class="btn">
+      <button mat-button (click)="editData(element)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="deleteData(element)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="paginator--container">
+  <mat-paginator [pageSizeOptions]="[20, 50, 200, 1000, 10000]" showFirstLastButtons
+                 class="paginator--container-inner"></mat-paginator>
+</div>
+

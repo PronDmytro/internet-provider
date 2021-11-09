@@ -3,11 +3,11 @@ import {DataService} from '../../core/services/data.service';
 import {Client} from '../../core/models/client.interface';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-client',
+  templateUrl: './client.component.html',
+  styleUrls: ['./client.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class ClientComponent implements OnInit {
 
   public ClientsData: Client[] | undefined;
 
@@ -16,8 +16,7 @@ export class DashboardComponent implements OnInit {
   ) {
   }
 
-  public ngOnInit(): void {
-    this.dataService.loadCurrentDataFromServer();
+  public ngOnInit() {
     this.dataService.clientsData$.asObservable().subscribe((data) => {
       this.ClientsData = data;
     });

@@ -1,0 +1,34 @@
+<h2 mat-dialog-title >Add new Payment</h2>
+
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field>
+    <mat-select placeholder="Order"
+                formControlName="order">
+      <mat-option *ngFor="let order of orders;" value="{{order.id}}">
+        {{order.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number"
+           placeholder="sum"
+           formControlName="sum">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly center">
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button class="mat-raised-button mat-primary" (click)="create()">
+    Create
+  </button>
+
+
+</mat-dialog-actions>
