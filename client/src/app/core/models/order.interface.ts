@@ -7,7 +7,7 @@ export interface Order {
   id?: string;
   client: Client;
   contributor: Employee;
-  date: Date;
+  orderDate: string;
   service: Service;
   workStatus: WorkStatus;
   paymentStatus: boolean;
