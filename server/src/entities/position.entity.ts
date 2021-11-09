@@ -1,5 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {IsString} from 'class-validator';
+import {EmployeeEntity} from './employee.entity';
 
 @Entity('Position')
 export class PositionEntity {
@@ -18,5 +19,8 @@ export class PositionEntity {
   @IsString()
   @Column()
   public salary: number;
+
+  @OneToMany(() => EmployeeEntity, (employee) => employee.position)
+  public employees: EmployeeEntity[];
 
 }

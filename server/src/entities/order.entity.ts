@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {IsString} from 'class-validator';
 import {ClientEntity} from './client.entity';
 import {EmployeeEntity} from './employee.entity';
@@ -11,20 +11,24 @@ export class OrderEntity {
   @PrimaryGeneratedColumn('uuid')
   public id: string;
 
-  @ManyToOne((type) => ClientEntity)
+  @ManyToOne((type) => ClientEntity, {eager: true})
+  @JoinColumn()
   public client: ClientEntity;
 
-  @ManyToOne((type) => EmployeeEntity)
+  @ManyToOne((type) => EmployeeEntity, {eager: true})
+  @JoinColumn()
   public contributor: EmployeeEntity;
 
   @IsString()
   @Column({nullable: false, type: 'smalldatetime'})
   public orderDate: Date;
 
-  @ManyToOne((type) => ServiceEntity)
+  @ManyToOne((type) => ServiceEntity, {eager: true})
+  @JoinColumn()
   public service: ServiceEntity;
 
-  @ManyToOne((type) => WorkStatusEntity)
+  @ManyToOne((type) => WorkStatusEntity, {eager: true})
+  @JoinColumn()
   public workStatus: WorkStatusEntity;
 
 
