@@ -7,6 +7,7 @@ import {Position} from '../models/position.interface';
 import {Employee} from '../models/employee.interface';
 import {WorkStatus} from '../models/work-status.interface';
 import {Payment} from '../models/payment.interface';
+import {Service} from '../models/service.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,7 @@ export class ApiRequestsService {
   private positionEndpoint = '/position';
   private workStatusEndpoint = '/work-status';
   private paymentEndpoint = '/payment';
+  private serviceEndpoint = '/service';
 
   public constructor(private apiService: ApiService) {
   }
@@ -40,7 +42,7 @@ export class ApiRequestsService {
   }
 
   public deleteClientData(client: Client) {
-    return this.apiService.delete(this.clientEndpoint+ `/${client.id}`, client);
+    return this.apiService.delete(this.clientEndpoint + `/${client.id}`, client);
   }
 
   public getOrdersData(): Observable<Order[]> {
@@ -56,11 +58,13 @@ export class ApiRequestsService {
   }
 
   public createOrder(order: Order) {
+    console.log('15155515');
+    console.log(order);
     return this.apiService.post(this.orderEndpoint, order);
   }
 
   public deleteOrderData(order: Order) {
-    return this.apiService.delete(this.orderEndpoint+ `/${order.id}`, order);
+    return this.apiService.delete(this.orderEndpoint + `/${order.id}`, order);
   }
 
   public getPositionsData(): Observable<Position[]> {
@@ -80,7 +84,7 @@ export class ApiRequestsService {
   }
 
   public deletePositionData(data: Position) {
-    return this.apiService.delete(this.positionEndpoint+ `/${data.id}`, data);
+    return this.apiService.delete(this.positionEndpoint + `/${data.id}`, data);
   }
 
   public getEmployeesData(): Observable<Employee[]> {
@@ -100,7 +104,7 @@ export class ApiRequestsService {
   }
 
   public deleteEmployeeData(data: Employee) {
-    return this.apiService.delete(this.employeeEndpoint+ `/${data.id}`, data);
+    return this.apiService.delete(this.employeeEndpoint + `/${data.id}`, data);
   }
 
   public getWorkStatusData(): Observable<WorkStatus[]> {
@@ -120,7 +124,7 @@ export class ApiRequestsService {
   }
 
   public deleteWorkStatusData(data: WorkStatus) {
-    return this.apiService.delete(this.workStatusEndpoint+ `/${data.id}`, data);
+    return this.apiService.delete(this.workStatusEndpoint + `/${data.id}`, data);
   }
 
   public getPaymentsData(): Observable<Payment[]> {
@@ -140,7 +144,27 @@ export class ApiRequestsService {
   }
 
   public deletePaymentData(data: Payment) {
-    return this.apiService.delete(this.paymentEndpoint+ `/${data.id}`, data);
+    return this.apiService.delete(this.paymentEndpoint + `/${data.id}`, data);
+  }
+
+  public getServicesData(): Observable<Service[]> {
+    return this.apiService.get(this.serviceEndpoint);
+  }
+
+  public getServiceDataById(id: string): Observable<Service> {
+    return this.apiService.get(this.serviceEndpoint + `/${id}`);
+  }
+
+  public updateServiceData(data: Service) {
+    return this.apiService.put(this.serviceEndpoint, data);
+  }
+
+  public createService(data: Service) {
+    return this.apiService.post(this.serviceEndpoint, data);
+  }
+
+  public deleteServiceData(data: Service) {
+    return this.apiService.delete(this.serviceEndpoint + `/${data.id}`, data);
   }
 
 }

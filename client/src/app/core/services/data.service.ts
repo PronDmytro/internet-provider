@@ -25,6 +25,8 @@ export class DataService {
   public paymentsData$ = new BehaviorSubject<Payment[] | undefined>(null);
   // @ts-ignore
   public workStatusData$ = new BehaviorSubject<WorkStatus[] | undefined>(null);
+  // @ts-ignore
+  public servicesData$ = new BehaviorSubject<Service[] | undefined>(null);
 
   public constructor(
     public apiRequestsService: ApiRequestsService,
@@ -49,6 +51,9 @@ export class DataService {
 
     const workStatusData = await this.apiRequestsService.getWorkStatusData().toPromise();
     this.workStatusData$.next(workStatusData);
+
+    const servicesData = await this.apiRequestsService.getServicesData().toPromise();
+    this.servicesData$.next(servicesData);
   }
 
 }
