@@ -6,9 +6,6 @@ export class CreatePaymentReqDto {
   public sum: number;
 
   @IsString()
-  public date: Date;
-
-  @IsString()
   public order: string;
 
 }

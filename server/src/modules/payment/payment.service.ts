@@ -27,6 +27,17 @@ export class PaymentService {
 
   public async create(body: CreatePaymentReqDto): Promise<PaymentEntity> {
     const order = await this.orderRepository.findOne({id: body.order});
+
+    const orderToUpdate = {
+      id: order.id,
+      client: order.client,
+      contributor: order.contributor,
+      service: order.service,
+      workStatus: order.workStatus,
+      paymentStatus: true,
+      orderDate: order.orderDate,
+    };
+    await this.orderRepository.update(order, orderToUpdate);
     const payment: DeepPartial<PaymentEntity> = merge(body, {order: order});
     const createdPayment = this.paymentRepository.create(payment);
     return await this.paymentRepository.save(createdPayment);

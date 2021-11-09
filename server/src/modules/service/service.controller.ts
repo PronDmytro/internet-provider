@@ -3,7 +3,7 @@ import {ServiceService} from './service.service';
 import {CreateServiceReqDto, UpdateServiceReqDto} from './dto';
 import {ServiceEntity} from '../../entities/service.entity';
 
-@Controller('position')
+@Controller('service')
 export class ServiceController {
 
   public constructor(
@@ -22,8 +22,8 @@ export class ServiceController {
   }
 
   @Post('')
-  public async create(@Body() createClientDto: CreateServiceReqDto): Promise<ServiceEntity> {
-    return await this.serviceService.create(createClientDto);
+  public async create(@Body() createServiceDto: CreateServiceReqDto): Promise<ServiceEntity> {
+    return await this.serviceService.create(createServiceDto);
   }
 
   @Put()

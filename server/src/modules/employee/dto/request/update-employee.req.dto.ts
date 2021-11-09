@@ -1,4 +1,4 @@
-import {IsEmail, IsMobilePhone, IsNumber, IsString, MaxLength} from 'class-validator';
+import {IsEmail, IsMobilePhone, IsString, MaxLength} from 'class-validator';
 
 export class UpdateEmployeeReqDto {
 
@@ -23,9 +23,6 @@ export class UpdateEmployeeReqDto {
   @IsEmail()
   @MaxLength(50)
   public email: string;
-
-  @IsNumber()
-  public deposit: number;
 
   @IsString()
   @MaxLength(100)
