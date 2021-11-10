@@ -6,17 +6,17 @@
   </ng-container>
 
   <ng-container matColumnDef="sum" >
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sum</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Сума оплати</th>
     <td mat-cell *matCellDef="let element"> {{element.sum}} </td>
   </ng-container>
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Дата</th>
     <td mat-cell *matCellDef="let element"> {{normalizeData(element.date)}} </td>
   </ng-container>
 
   <ng-container matColumnDef="order">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Order</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Замовлення</th>
     <td mat-cell *matCellDef="let element"> {{element.order.id}}</td>
   </ng-container>
 

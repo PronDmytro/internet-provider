@@ -1,10 +1,10 @@
-<h2 mat-dialog-title *ngIf="!editMode">Add new Order</h2>
-<h2 mat-dialog-title *ngIf="editMode">Edit Order data</h2>
+<h2 mat-dialog-title *ngIf="!editMode">Створення нового замовленя</h2>
+<h2 mat-dialog-title *ngIf="editMode">Редагування даних замовленя</h2>
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field>
-    <mat-select placeholder="Select client"
+    <mat-select placeholder="Виберіть клієнта"
                 formControlName="client">
       <mat-option *ngFor="let client of clients;" value="{{client.id}}">
         {{client.PIB}} | {{client.email}}
@@ -13,7 +13,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Select contributor"
+    <mat-select placeholder="Виберіть виконавця"
                 formControlName="contributor">
       <mat-option *ngFor="let contributor of contributors;" value="{{contributor.id}}">
         {{contributor.PIB}} | {{contributor.email}}
@@ -22,7 +22,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Select service"
+    <mat-select placeholder="Виберіть послугу"
                 formControlName="service">
       <mat-option *ngFor="let service of services;" value="{{service.id}}">
         {{service.name}}
@@ -31,7 +31,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Select status"
+    <mat-select placeholder="Виберіть статус виконання"
                 formControlName="workStatus">
       <mat-option *ngFor="let status of workStatus;" value="{{status.id}}">
         {{status.statusName}}
@@ -44,14 +44,14 @@
 
   <button class="mat-raised-button"
           (click)="close()">
-    Close
+    Закрити
   </button>
 
   <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
-    Create
+    Створити
   </button>
   <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
-    Save
+    Зберегти
   </button>
 
 </mat-dialog-actions>

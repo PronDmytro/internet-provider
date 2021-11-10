@@ -1,21 +1,21 @@
 <mat-form-field class="filter">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="enter params">
+  <mat-label>Фільтр пошуку</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Введіть параметри пошуку">
 </mat-form-field>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <ng-container matColumnDef="PIB">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <th mat-header-cell *matHeaderCellDef>ПІБ</th>
     <td mat-cell *matCellDef="let element"> {{element.PIB}} </td>
   </ng-container>
 
   <ng-container matColumnDef="dateBirthday">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Birthday</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Дата народження</th>
     <td mat-cell *matCellDef="let element"> {{normalizeData(element.dateBirthday)}} </td>
   </ng-container>
 
   <ng-container matColumnDef="telephone">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Telephone</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Номер телефону</th>
     <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
   </ng-container>
 
@@ -25,12 +25,12 @@
   </ng-container>
 
   <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Адреса</th>
     <td mat-cell *matCellDef="let element"> {{element.address}} </td>
   </ng-container>
 
   <ng-container matColumnDef="deposit">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Deposit</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Рахунок</th>
     <td mat-cell *matCellDef="let element"> {{element.deposit}} </td>
   </ng-container>
 

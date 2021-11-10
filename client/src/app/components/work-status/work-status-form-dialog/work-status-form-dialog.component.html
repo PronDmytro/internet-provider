@@ -1,11 +1,11 @@
-<h2 mat-dialog-title *ngIf="!editMode">Add new Status</h2>
-<h2 mat-dialog-title *ngIf="editMode">Edit Status data</h2>
+<h2 mat-dialog-title *ngIf="!editMode">Додавання нового статусу роботи</h2>
+<h2 mat-dialog-title *ngIf="editMode">Редагування даних статусу роботи</h2>
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field>
     <input matInput type="text"
-           placeholder="Name"
+           placeholder="Назва статусу"
            formControlName="name">
   </mat-form-field>
 
@@ -15,14 +15,14 @@
 
   <button class="mat-raised-button"
           (click)="close()">
-    Close
+    Закрити
   </button>
 
   <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
-    Create
+    Додати
   </button>
   <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
-    Save
+    Зберегти
   </button>
 
 </mat-dialog-actions>

@@ -1,10 +1,10 @@
-<h2 mat-dialog-title >Add new Payment</h2>
+<h2 mat-dialog-title >Симуляція оплати</h2>
 
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field>
-    <mat-select placeholder="Order"
+    <mat-select placeholder="Замовлення"
                 formControlName="order">
       <mat-option *ngFor="let order of orders;" value="{{order.id}}">
         {{order.id}}
@@ -14,7 +14,7 @@
 
   <mat-form-field>
     <input matInput type="number"
-           placeholder="sum"
+           placeholder="Сума оплати"
            formControlName="sum">
   </mat-form-field>
 </mat-dialog-content>
@@ -23,11 +23,11 @@
 
   <button class="mat-raised-button"
           (click)="close()">
-    Close
+    Закрити
   </button>
 
   <button class="mat-raised-button mat-primary" (click)="create()">
-    Create
+    Створити
   </button>
 
 

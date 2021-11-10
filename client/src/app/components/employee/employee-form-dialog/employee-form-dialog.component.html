@@ -1,24 +1,24 @@
-<h2 mat-dialog-title *ngIf="!editMode">Add new Employee</h2>
-<h2 mat-dialog-title *ngIf="editMode">Edit Employee data</h2>
+<h2 mat-dialog-title *ngIf="!editMode">Додавання нового співробітника</h2>
+<h2 mat-dialog-title *ngIf="editMode">Редагування даних співробітника</h2>
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field>
     <input matInput type="text"
-           placeholder="Name"
+           placeholder="ПІБ"
            formControlName="PIB">
   </mat-form-field>
   <mat-form-field>
     <input matInput type="text"
-           placeholder="passportId"
+           placeholder="Номер паспорту"
            formControlName="passportId">
   </mat-form-field>
 
   <mat-form-field>
     <input matInput type="tel"
-           placeholder="Phone Number"
+           placeholder="Номер телефону"
            formControlName="phoneNumber">
-    <mat-error *ngIf="hasError('phoneNumber', 'pattern')">incorrect number</mat-error>
+    <mat-error *ngIf="hasError('phoneNumber', 'pattern')">Невірний номер телефону</mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -29,7 +29,7 @@
 
   <mat-form-field>
     <input matInput [matDatepicker]="picker"
-           placeholder="Date of birth"
+           placeholder="Дата народження"
            formControlName="dateOfBirth">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -37,7 +37,7 @@
 
   <mat-form-field>
     <input matInput type="text"
-           placeholder="Address"
+           placeholder="Адреса проживання"
            formControlName="address">
   </mat-form-field>
   <mat-form-field>
@@ -57,14 +57,14 @@
 
   <button class="mat-raised-button"
           (click)="close()">
-    Close
+    Закрити
   </button>
 
   <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
-    Create
+    Додати
   </button>
   <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
-    Save
+    Зберегти
   </button>
 
 </mat-dialog-actions>

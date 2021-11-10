@@ -1,12 +1,12 @@
 <mat-form-field class="filter">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="enter params">
+  <mat-label>Фільтр пошуку</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Введіть параметри пошуку">
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <th mat-header-cell *matHeaderCellDef>Назва статусу роботи</th>
     <td mat-cell *matCellDef="let element"> {{element.statusName}} </td>
   </ng-container>
 

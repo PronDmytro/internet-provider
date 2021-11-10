@@ -1,22 +1,22 @@
 <mat-form-field class="filter">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="enter params">
+  <mat-label>Фільтр пошуку</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Введіть параметри пошуку">
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="timeFrom" class="date-column">Name</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="timeFrom" class="date-column">Назва послуги</th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="cost">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> cost</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Вартість</th>
     <td mat-cell *matCellDef="let element"> {{element.serviceCost}} </td>
   </ng-container>
 
   <ng-container matColumnDef="connectionCost">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> connectionCost</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Вартість підключення</th>
     <td mat-cell *matCellDef="let element"> {{element.connectionCost}} </td>
   </ng-container>
 

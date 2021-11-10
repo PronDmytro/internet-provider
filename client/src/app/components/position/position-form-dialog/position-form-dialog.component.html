@@ -1,23 +1,23 @@
-<h2 mat-dialog-title *ngIf="!editMode">Add new Service</h2>
-<h2 mat-dialog-title *ngIf="editMode">Edit Service data</h2>
+<h2 mat-dialog-title *ngIf="!editMode">Додання нової посади</h2>
+<h2 mat-dialog-title *ngIf="editMode">Редагування даних посади</h2>
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field>
     <input matInput type="text"
-           placeholder="Name"
+           placeholder="Назва посади"
            formControlName="name">
   </mat-form-field>
 
   <mat-form-field>
     <input matInput type="text"
-           placeholder="responsibilities"
+           placeholder="Обов'язки"
            formControlName="responsibilities">
   </mat-form-field>
 
   <mat-form-field>
     <input matInput type="number"
-           placeholder="salary"
+           placeholder="Заробітня плата"
            formControlName="salary">
   </mat-form-field>
 
@@ -27,14 +27,14 @@
 
   <button class="mat-raised-button"
           (click)="close()">
-    Close
+    Закрити
   </button>
 
   <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
-    Create
+    Створити
   </button>
   <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
-    Save
+    Зберегти
   </button>
 
 </mat-dialog-actions>
