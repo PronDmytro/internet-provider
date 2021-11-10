@@ -1,0 +1,70 @@
+<h2 mat-dialog-title *ngIf="!editMode">Add new Employee</h2>
+<h2 mat-dialog-title *ngIf="editMode">Edit Employee data</h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field>
+    <input matInput type="text"
+           placeholder="Name"
+           formControlName="PIB">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text"
+           placeholder="passportId"
+           formControlName="passportId">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="tel"
+           placeholder="Phone Number"
+           formControlName="phoneNumber">
+    <mat-error *ngIf="hasError('phoneNumber', 'pattern')">incorrect number</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="email"
+           placeholder="Email"
+           formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker"
+           placeholder="Date of birth"
+           formControlName="dateOfBirth">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text"
+           placeholder="Address"
+           formControlName="address">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Select position"
+                formControlName="position">
+      <mat-option *ngFor="let position of positions;" value="{{position.id}}">
+        {{position.name}}
+      </mat-option>
+      <mat-option value="id1">
+        Intermediate
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly center">
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
+    Create
+  </button>
+  <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

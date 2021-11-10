@@ -17,7 +17,8 @@ export class EmployeeService {
   ) {
   }
 
-  public findAll(): Promise<EmployeeEntity[]> {
+  public async findAll(): Promise<EmployeeEntity[]> {
+    console.log(await this.employeeRepository.find());
     return this.employeeRepository.find();
   }
 

@@ -1,0 +1,40 @@
+<h2 mat-dialog-title *ngIf="!editMode">Add new Service</h2>
+<h2 mat-dialog-title *ngIf="editMode">Edit Service data</h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field>
+    <input matInput type="text"
+           placeholder="Name"
+           formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number"
+           placeholder="Cost"
+           formControlName="serviceCost">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number"
+           placeholder="Connection cost"
+           formControlName="connectionCost">
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly center">
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
+    Create
+  </button>
+  <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

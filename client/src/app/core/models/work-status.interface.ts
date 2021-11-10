@@ -1,4 +1,4 @@
 export interface WorkStatus {
-  id: string;
-  name: string;
+  id?: string;
+  statusName: string;
 }

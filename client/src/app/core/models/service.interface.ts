@@ -1,6 +1,6 @@
 export interface Service {
-  id: string;
+  id?: string;
   name: string;
-  cost: number;
+  serviceCost: number;
   connectionCost: number;
 }

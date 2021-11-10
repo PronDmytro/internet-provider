@@ -40,9 +40,9 @@ export class ApiService {
       .pipe(catchError(ApiService.formatErrors));
   }
 
-  public delete<Res = object>(path: string): Observable<Res | never> {
+  public delete<Req = object, Res = object>(path: string, body?: Req): Observable<Res | never> {
     return this.http
-      .delete<Res>(`${this.conf.apiUrl}${path}`)
+      .delete<Res>(`${this.conf.apiUrl}${path}`, body)
       .pipe(catchError(ApiService.formatErrors));
   }
 

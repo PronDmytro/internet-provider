@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {IsEmail, IsMobilePhone, IsString} from 'class-validator';
 import {PositionEntity} from './position.entity';
 
@@ -32,7 +32,8 @@ export class EmployeeEntity {
   @Column({nullable: false, length: 100})
   public address: string;
 
-  @ManyToOne((type) => PositionEntity)
+  @ManyToOne((type) => PositionEntity, {eager: true})
+  @JoinColumn()
   public position: PositionEntity;
 
 }

@@ -1,0 +1,57 @@
+<h2 mat-dialog-title *ngIf="!editMode">Add new Order</h2>
+<h2 mat-dialog-title *ngIf="editMode">Edit Order data</h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field>
+    <mat-select placeholder="Select client"
+                formControlName="client">
+      <mat-option *ngFor="let client of clients;" value="{{client.id}}">
+        {{client.PIB}} | {{client.email}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select contributor"
+                formControlName="contributor">
+      <mat-option *ngFor="let contributor of contributors;" value="{{contributor.id}}">
+        {{contributor.PIB}} | {{contributor.email}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select service"
+                formControlName="service">
+      <mat-option *ngFor="let service of services;" value="{{service.id}}">
+        {{service.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select status"
+                formControlName="workStatus">
+      <mat-option *ngFor="let status of workStatus;" value="{{status.id}}">
+        {{status.statusName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly center">
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button *ngIf="!editMode" class="mat-raised-button mat-primary" (click)="create()">
+    Create
+  </button>
+  <button *ngIf="editMode" class="mat-raised-button mat-primary" (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

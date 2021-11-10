@@ -1,8 +1,8 @@
 import {Order} from './order.interface';
 
 export interface Payment {
-  id: string;
+  id?: string;
   sum: number;
-  date: Date;
+  date?: string;
   order: Order;
 }

@@ -1,4 +1,4 @@
-import {BeforeUpdate, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {IsString} from 'class-validator';
 import {OrderEntity} from './order.entity';
 
@@ -16,12 +16,8 @@ export class PaymentEntity {
   @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   public date: Date;
 
-  @ManyToOne((type) => OrderEntity)
+  @ManyToOne((type) => OrderEntity, {eager: true})
+  @JoinColumn()
   public order: OrderEntity;
-
-  @BeforeUpdate()
-  public updateStatus() {
-    this.order.paymentStatus = true;
-  }
 
 }

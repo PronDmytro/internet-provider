@@ -4,10 +4,10 @@ import {Service} from './service.interface';
 import {WorkStatus} from './work-status.interface';
 
 export interface Order {
-  id: string;
+  id?: string;
   client: Client;
   contributor: Employee;
-  date: Date;
+  orderDate: string;
   service: Service;
   workStatus: WorkStatus;
   paymentStatus: boolean;

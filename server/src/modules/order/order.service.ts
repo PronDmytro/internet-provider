@@ -38,7 +38,7 @@ export class OrderService {
     const contributor = await this.employeeRepository.findOne({id: body.contributor});
     const client = await this.clientRepository.findOne({id: body.client});
     const service = await this.serviceRepository.findOne({id: body.service});
-    const workStatus = await this.serviceRepository.findOne({id: body.service});
+    const workStatus = await this.serviceRepository.findOne({id: body.workStatus});
 
     const order: DeepPartial<OrderEntity> = merge(body, {
       client: client,
@@ -56,7 +56,7 @@ export class OrderService {
     const contributor = await this.employeeRepository.findOne({id: body.contributor});
     const client = await this.clientRepository.findOne({id: body.client});
     const service = await this.serviceRepository.findOne({id: body.service});
-    const workStatus = await this.serviceRepository.findOne({id: body.service});
+    const workStatus = await this.serviceRepository.findOne({id: body.workStatus});
 
     const order: DeepPartial<OrderEntity> = merge(body, {
       client: client,
