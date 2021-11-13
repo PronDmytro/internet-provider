@@ -1,0 +1,63 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title class="text">Загальна кількість клієнтів</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="clients" class="text">
+      {{clients.length}}
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title class="text">Загальна кількість <br/>
+        співробітників
+      </mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="contributors" class="text">
+      {{contributors.length}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title class="text">Кількість робітників <br/>
+        на робочому виїзді
+      </mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="contributors" class="text">
+      {{getContributorsInWork()}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title class="text">Кількість послуг</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="services" class="text">
+      {{services.length}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title class="text">Кількість замовлень</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="orders" class="text">
+      {{orders.length}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title>Оплат проведено</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="payments">
+      {{payments.length}}
+    </mat-card-content>
+    <mat-card-title-group>
+      <mat-card-title>На суму</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content *ngIf="payments">
+      {{getPaymentsSum()}}
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

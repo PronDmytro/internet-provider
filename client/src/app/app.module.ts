@@ -45,6 +45,8 @@ import {OrderFormDialogComponent} from './components/order/order-form-dialog/ord
 import {WorkStatusComponent} from './components/work-status/work-status.component';
 import {WorkStatusTableComponent} from './components/work-status/work-status-table/work-status-table.component';
 import {WorkStatusFormDialogComponent} from './components/work-status/work-status-form-dialog/work-status-form-dialog.component';
+import {StatComponent} from './components/stat/stat.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -72,6 +74,7 @@ import {WorkStatusFormDialogComponent} from './components/work-status/work-statu
     WorkStatusComponent,
     WorkStatusTableComponent,
     WorkStatusFormDialogComponent,
+    StatComponent,
   ],
   imports: [
     CommonModule,
@@ -96,6 +99,7 @@ import {WorkStatusFormDialogComponent} from './components/work-status/work-statu
     MatPaginatorModule,
     MatIconModule,
     FlexLayoutModule,
+    MatCardModule,
   ],
   providers: [
     RouterModule,
